@@ -1,6 +1,6 @@
 import { Specification } from '../entities/Specification';
 
-interface ISpecificationsDTO {
+interface ISpecificationsRepositoryDTO {
   name: string;
   description: string;
 }
@@ -8,9 +8,9 @@ interface ISpecificationsDTO {
 interface ISpecificationsRepository {
   index(): Promise<Specification[] | undefined>;
   show(id: string): Promise<Specification | undefined>;
-  create({ name, description }: ISpecificationsDTO): Promise<void>;
-  findByName(name: string): Promise<ISpecificationsDTO>;
+  create({ name, description }: ISpecificationsRepositoryDTO): Promise<void>;
+  findByName(name: string): Promise<ISpecificationsRepositoryDTO>;
   findById(id: string): Promise<Specification>;
 }
 
-export { ISpecificationsDTO, ISpecificationsRepository };
+export { ISpecificationsRepository, ISpecificationsRepositoryDTO };

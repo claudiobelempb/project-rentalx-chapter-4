@@ -3,7 +3,7 @@ import { EntityRepository, getRepository, Repository } from "typeorm";
 import { Specification } from "../../entities/Specification";
 import {
   ISpecificationsRepository,
-  ISpecificationsDTO,
+  ISpecificationsRepositoryDTO,
 } from "../../repositories/ISpecificationsRepository";
 
 @EntityRepository(Specification)
@@ -27,7 +27,7 @@ class SpecificationsRepository implements ISpecificationsRepository {
   public async create({
     name,
     description,
-  }: ISpecificationsDTO): Promise<void> {
+  }: ISpecificationsRepositoryDTO): Promise<void> {
   
     const specification = this.repository.create({
       name, 
@@ -38,7 +38,7 @@ class SpecificationsRepository implements ISpecificationsRepository {
 
   }
 
-  public async findByName(name: string): Promise<ISpecificationsDTO> {
+  public async findByName(name: string): Promise<ISpecificationsRepositoryDTO> {
     const specificationNameExists = this.repository.findOne({name});
     return specificationNameExists;
   }
