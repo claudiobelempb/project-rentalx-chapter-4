@@ -1,10 +1,10 @@
 import { EntityRepository, getRepository, Repository } from "typeorm";
 
-import { Specification } from "../../entities/Specification";
+import { Specification } from "@modules/cars/entities/Specification";
 import {
   ISpecificationsRepository,
   ISpecificationsRepositoryDTO,
-} from "../../repositories/ISpecificationsRepository";
+} from "@modules/cars/repositories/ISpecificationsRepository";
 
 @EntityRepository(Specification)
 class SpecificationsRepository implements ISpecificationsRepository {

@@ -1,5 +1,5 @@
-import { AppError } from "../../../../shared/errors/AppError";
-import { CategoriesRepositoryInMemory } from "../../repositories/in-memory/CategoriesRepositoryInMemory";
+import { AppError } from "@shared/errors/AppError";
+import { CategoriesRepositoryInMemory } from "@modules/cars/repositories/in-memory/CategoriesRepositoryInMemory";
 import { CreateCategoryUseCase } from "./CreateCategoryUseCase";
 
 let createCategoryUseCase: CreateCategoryUseCase;
@@ -23,7 +23,7 @@ describe("Create category", () => {
     });
     const categoryCreate = await categoriesRepositoryInMemory.findByName(
       category.name
-    );
+    ); 
 
     expect(categoryCreate).toHaveProperty("id");
   });
@@ -45,3 +45,6 @@ describe("Create category", () => {
     }).rejects.toBeInstanceOf(AppError);
   });
 });
+
+/*996088373 Vemilton Duarte
+vemiltonduarte@gmail.com*/
