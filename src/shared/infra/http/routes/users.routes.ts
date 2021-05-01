@@ -1,7 +1,7 @@
 import { Router } from "express";
 import multer from "multer";
 
-import { ensureAuthenticated } from "@shared/middlewares/ensureAuthenticated";
+import { ensureAuthenticated } from "@shared/infra/http/middlewares/ensureAuthenticated";
 import configUpload from "@config/upload";
 
 import { IndexUserController } from "@modules/accounts/useCase/IndexUser/IndexUserController";

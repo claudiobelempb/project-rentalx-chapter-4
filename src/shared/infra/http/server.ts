@@ -3,12 +3,12 @@ import express, { Request, Response, NextFunction } from "express";
 import "express-async-errors";
 import swaggerUi from "swagger-ui-express";
 
-import "./database";
-import "./shared/container";
+import ".@shared/infra/typeorm";
+import "@shared/container";
 
 import { router } from "./routes";
-import swaggerConfig from "./swagger.json";
-import { AppError } from "./shared/errors/AppError";
+import swaggerConfig from "../../../swagger.json";
+import { AppError } from "@shared/errors/AppError";
 
 const app = express();
 app.use(express.json());
@@ -29,7 +29,7 @@ app.use(
       status: "error",
       message: `Internal server error - ${error.message}`,
     });
-  }
+  },
 );
 
 app.listen(3333, () => {
