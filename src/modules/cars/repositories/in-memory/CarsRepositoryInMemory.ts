@@ -4,6 +4,7 @@ import { Car } from "@modules/cars/infra/typeorm/entities/Car";
 
 class CarsRepositoryInMemory implements ICarsRepository {
   cars: Car[] = [];
+  
   public async create({
     name,
     description,
@@ -14,6 +15,7 @@ class CarsRepositoryInMemory implements ICarsRepository {
     category_id,
   }: ICreateCarDTO): Promise<Car> {
     const car = new Car();
+   
     Object.assign({
       name,
       description,
@@ -23,7 +25,9 @@ class CarsRepositoryInMemory implements ICarsRepository {
       license_plate,
       category_id,
     });
+  
     this.cars.push(car);
+
 
     return car;
   }
