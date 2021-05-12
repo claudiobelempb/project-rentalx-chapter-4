@@ -1,5 +1,5 @@
 import { AppError } from "@shared/errors/AppError";
-import { SpecificationsRepositoryInMemory } from "@modules/cars/repositories/in-memory/SpecificationsRepositoryInMemory";
+import { SpecificationsRepositoryInMemory } from "@modules/categories/repositories/in-memory/SpecificationsRepositoryInMemory";
 import { CreateSpecificationUseCase } from "./CreateSpecificationUseCase";
 
 let createSpecificationUseCase: CreateSpecificationUseCase;

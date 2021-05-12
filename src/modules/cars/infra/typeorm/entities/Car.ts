@@ -1,4 +1,5 @@
 import { Category } from "@modules/categories/infra/typeorm/entities/Category";
+import { Status } from "@modules/status/infra/typeorm/entities/Status";
 import {
   Column,
   CreateDateColumn,
@@ -41,6 +42,13 @@ class Car {
 
   @Column()
   category_id: string;
+
+  @ManyToOne(() => Status)
+  @JoinColumn({name: "status_id"})
+  status: Status;
+
+  @Column()
+  status_id: string;
 
   @CreateDateColumn()
   created_at: Date;

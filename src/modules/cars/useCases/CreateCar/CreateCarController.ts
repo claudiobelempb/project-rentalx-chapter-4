@@ -12,6 +12,7 @@ class CreateCarController {
       fine_amount,
       license_plate,
       category_id,
+      status_id,
     } = request.body;
     const createCarUseCase = container.resolve(CreateCarUseCase);
     const car = await createCarUseCase.execute({
@@ -22,6 +23,7 @@ class CreateCarController {
       fine_amount,
       license_plate,
       category_id,
+      status_id,
     });
 
     return response.status(201).json(car);

@@ -19,6 +19,7 @@ describe("Create car", () => {
       fine_amount: 60,
       brand: "Brand",
       category_id: "category",
+      status_id: "status",
     });
 
     expect(car).toHaveProperty("id");
@@ -34,6 +35,7 @@ describe("Create car", () => {
         fine_amount: 60,
         brand: "Brand",
         category_id: "category",
+        status_id: "status"
       });
 
       await createCarUseCase.execute({
@@ -44,6 +46,7 @@ describe("Create car", () => {
         fine_amount: 60,
         brand: "Brand",
         category_id: "category",
+        status_id: "status",
       });
     }).rejects.toBeInstanceOf(AppError);
   });
@@ -57,6 +60,7 @@ describe("Create car", () => {
       fine_amount: 60,
       brand: "Brand",
       category_id: "category",
+      status_id: "status",
     });
 
     expect(car.availabe).toBe(true);

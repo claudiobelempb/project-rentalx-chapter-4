@@ -6,11 +6,10 @@ import { inject, injectable } from "tsyringe";
 
 @injectable()
 class CreateCarUseCase {
-
   constructor(
     @inject("CarsRepository")
-    private carsRepository: ICarsRepository
-  ){}
+    private carsRepository: ICarsRepository,
+  ) {}
 
   public async execute({
     name,
@@ -20,11 +19,13 @@ class CreateCarUseCase {
     fine_amount,
     brand,
     category_id,
+    status_id,
   }: ICreateCarDTO): Promise<Car> {
+    const carAlreadyExists = await this.carsRepository.findByLicensePlate(
+      license_plate,
+    );
 
-    const carAlreadyExists = await this.carsRepository.findByLicensePlate(license_plate);
-    
-    if(carAlreadyExists){
+    if (carAlreadyExists) {
       throw new AppError("Car license plate already exists!");
     }
 
@@ -36,6 +37,7 @@ class CreateCarUseCase {
       fine_amount,
       license_plate,
       category_id,
+      status_id,
     });
 
     return car;
